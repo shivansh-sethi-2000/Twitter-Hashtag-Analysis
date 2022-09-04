@@ -2,33 +2,27 @@ import streamlit as st
 from os.path import exists
 import import_ipynb
 import functions as fnc
-import import_ipynb
 import seaborn as sns
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import datetime
 from wordcloud import WordCloud
-import requests
-import shutil
 import functions as fnc
 from absl import logging
 import warnings
 warnings.filterwarnings('ignore')
 from sklearn.metrics.pairwise import cosine_similarity
 from collections import Counter, OrderedDict
-import cv2 as cv
-import os
 from itertools import chain
 from collections import Counter, OrderedDict
 from ast import literal_eval
-from sklearn.preprocessing import StandardScaler
 import spacy
 
 
 st.set_page_config(layout="wide")
 st.title('Hashtag Trend Analysis')
-trend = st.text_input('enter # trend to find data')
+trend = st.text_input('enter # trend(without #) to find data')
 start = st.date_input('enter start date', datetime.datetime.now() - datetime.timedelta(1))
 end = st.date_input('enter end date', datetime.datetime.now())
 st.write('searched for', trend)

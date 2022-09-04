@@ -5,13 +5,11 @@ Twitter Hashtag Trend Analysis Tool
 - Rohit
 
 ## Tool Description
-This sections discusses the purpose and motivation for the tool, and how it addresses a tool need you've identified.
 
-The Main purpose of the tool is for user to analyse bot/propoganda based behaviour during a given timeline on a certain hashtag.
+The Main purpose of the tool is for users to analyse bot/propoganda based behaviour during a given timeline on a certain hashtag.
 There are very few tools currently which provide an all in one analysis, so we tried to make one that not only helps the user to analyse/visualize the data but also does some analysis itself by maintaining score of the users found based on some parameters that can helps user to filter out the accounts for further analysis.
 
 ## Installation
-This section includes detailed instructions for installing the tool, including any terminal commands that need to be executed and dependencies that need to be installed. Instructions should be understandable by non-technical users (e.g. someone who knows how to open a terminal and run commands, but isn't necessarily a programmer), for example:
 
 ### As this repo contains some git lfs objects and the git lfs bandwidth is limited you have to follow the below steps to doenload the repo.
 
@@ -35,9 +33,10 @@ This section includes detailed instructions for installing the tool, including a
 
 8. add your API keys and sceret to my_tokens.py file
 
-## Usage
-This sections includes detailed instructions for using the tool. If the tool has a command-line interface, include common commands and arguments, and some examples of commands and a description of the expected output. If the tool has a graphical user interface or a browser interface, include screenshots and describe a common workflow.
+- you can also Download the cardiffnlp and universal-sentence-encoder_4 folders from the link : https://drive.google.com/drive/folders/1mOe2WVAit0AakFINY3k1iaVLoP4ExO8n?usp=sharing
+- just place the cardiffnlp and universal-sentence-encoder_4 folders in the same directory.
 
+## Usage
 1. To run the Script use the following command
 
         streamlit run Hashtag_Trend_Script.py
@@ -48,7 +47,6 @@ This sections includes detailed instructions for using the tool. If the tool has
     ![What is this](images/main.png)
 
 ## Additional Information
-This section includes any additional information that you want to mention about the tool, including:
-- Potential next steps for the tool (i.e. what you would implement if you had more time)
-- Any limitations of the current implementation of the tool
-- Motivation for design/architecture decisions
+- Next Steps would include adding network graphs of filtered Users for better analysis and image tweet analysis.
+- there are some restrictions in using twitter API and same are applied here. Also, the text pre processing might take a liitle time for medium-large datasets.
+- After seeing a lot bot/propoganda behaviour of accounts there should be a tool available to general public to filter those accounts and any information they might share.
