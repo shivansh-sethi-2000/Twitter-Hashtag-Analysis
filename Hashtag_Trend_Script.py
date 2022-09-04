@@ -67,10 +67,10 @@ def get_count_list(lst, word_dic):
 def present_data(data, dataX, authorsX, X):
     scores = {idx : 10 for idx in dataX.author_id}
     fig = plt.figure(figsize=(15,5))
-    st.header('account creation density vs their tweets on #indiaout for accounts with<'+X+' tweets')
-    sns.kdeplot(data[data.author_id.isin(dataX.author_id)].created_at, fill=True, color='r', label = 'tweets on #indiaout, from these acccounts')
+    st.header('account creation density vs their tweets on #'+trend+' for accounts with<'+X+' tweets')
+    sns.kdeplot(data[data.author_id.isin(dataX.author_id)].created_at, fill=True, color='r', label = 'tweets on #'+trend+', from these acccounts')
     sns.kdeplot(dataX[dataX.created_at.dt.date >= datetime.date(start.year, start.month, start.day)].created_at, fill=True, palette='magma', label='accounts created during timeline')
-    sns.kdeplot(data.created_at, color='g', fill=False, label='total tweets on #indiaout')
+    sns.kdeplot(data.created_at, color='g', fill=False, label='total tweets on #'+trend)
     plt.legend()
     st.pyplot(fig)
     dataX['author_username'] = dataX.author_id.apply(lambda x : authorsX[authors.id == x]['username'].values[0])
@@ -441,8 +441,8 @@ if st.button('Load Filtered Authors Data') or st.session_state.button2:
 
         data_load_state.text("Done Data Loaded!!")
         fig = plt.figure(figsize=(30,8))
-        st.subheader('density of accounts(filtered based on number of tweets and number of hashtags) and their tweets on #indiaout')
-        sns.kdeplot(data[data.author_id.isin(author_list_tweet_cnt)]['created_at'], fill=True, color='r', label='#indiaout Tweets')
+        st.subheader('density of accounts(filtered based on number of tweets and number of hashtags) and their tweets on #'+trend)
+        sns.kdeplot(data[data.author_id.isin(author_list_tweet_cnt)]['created_at'], fill=True, color='r', label='#'+trend+' Tweets')
         sns.kdeplot(authors[authors.created_at.dt.date >= datetime.date(start.year, start.month, start.day)].created_at, fill=True, color='b', label='filtered accounts creation date')
         plt.legend()
         st.pyplot(fig)
