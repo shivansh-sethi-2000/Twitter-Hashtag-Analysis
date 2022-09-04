@@ -22,7 +22,7 @@ import spacy
 
 st.set_page_config(layout="wide")
 st.title('Hashtag Trend Analysis')
-trend = st.text_input('enter # trend(without #) to find data')
+trend = st.text_input('enter # trend(with #) to find data')
 start = st.date_input('enter start date', datetime.datetime.now() - datetime.timedelta(1))
 end = st.date_input('enter end date', datetime.datetime.now())
 st.write('searched for', trend)
@@ -435,7 +435,7 @@ if st.button('Load Filtered Authors Data') or st.session_state.button2:
 
         data_load_state.text("Done Data Loaded!!")
         fig = plt.figure(figsize=(30,8))
-        st.subheader('density of accounts(filtered based on number of tweets and number of hashtags) and their tweets on #'+trend)
+        st.subheader('density of accounts creation(filtered based on number of tweets and number of hashtags) and their tweets on #'+trend)
         sns.kdeplot(data[data.author_id.isin(author_list_tweet_cnt)]['created_at'], fill=True, color='r', label='#'+trend+' Tweets')
         sns.kdeplot(authors[authors.created_at.dt.date >= datetime.date(start.year, start.month, start.day)].created_at, fill=True, color='b', label='filtered accounts creation date')
         plt.legend()
@@ -583,4 +583,4 @@ if st.button('Get Info About Authors With <200 Tweets') or st.session_state.butt
     data200 = pd.read_csv(path_timeline+'..<200.csv', parse_dates=['tweet_time', 'created_at'])
     authors = pd.read_csv(path_authors+'.csv', names=['id','created_at', 'name', 'username', 'verified', 'protected', 'followers', 'following', 'tweets_count'] ,parse_dates=['created_at'])
     authors['short_date'] = authors['created_at'].apply(lambda x : str(x.year)+'-'+str(x.month))
-    present_data(data,data50,authors,'200')
+    present_data(data,data200,authors,'200')
