@@ -36,7 +36,7 @@ This sections includes detailed instructions for using the tool. If the tool has
 2. It will Take you to your Web Page If not you can use the Url showing in your terminal
 
 3. The HomePage will Look Like this
-    ![What is this](main.png)
+    ![What is this](images/main.png)
 
 ## Additional Information
 This section includes any additional information that you want to mention about the tool, including:
